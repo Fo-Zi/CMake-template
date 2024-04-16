@@ -1,42 +1,42 @@
-name: Documentation
-
-on:
-  push:
-    tags:
-      - "*"
-    branches: [ main, master ]
-
-jobs:
-  build:
-    name: Build and publish documentation
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-    - name: Install Docs
-      run: |
-        make install_doc
-    - name: Install Coverage tools
-      run: |
-        make install_cov
-    - name: clean
-      run: |
-        make clean
-    - name: configure
-      run: |
-        make configure
-    - name: building
-      run: |
-        make buildit
-    - name: Deploy to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        email: facundozingarelli@gmail.com
-        build_dir: ./docs/html
-      
-    - name: Deploy code coverage
-      run: |
-        cd build/coverage
-        bash <(curl -s https://codecov.io/bash)
+#name: Documentation
+#
+#on:
+#  push:
+#    tags:
+#      - "*"
+#    branches: [ main, master ]
+#
+#jobs:
+#  build:
+#    name: Build and publish documentation
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - uses: actions/setup-python@v2
+#    - name: Install Docs
+#      run: |
+#        make install_doc
+#    - name: Install Coverage tools
+#      run: |
+#        make install_cov
+#    - name: clean
+#      run: |
+#        make clean
+#    - name: configure
+#      run: |
+#        make configure
+#    - name: building
+#      run: |
+#        make buildit
+#    - name: Deploy to GitHub Pages
+#      uses: Cecilapp/GitHub-Pages-deploy@v3
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      with:
+#        email: facundozingarelli@gmail.com
+#        build_dir: ./docs/html
+#      
+#    - name: Deploy code coverage
+#      run: |
+#        cd build/coverage
+#        bash <(curl -s https://codecov.io/bash)
