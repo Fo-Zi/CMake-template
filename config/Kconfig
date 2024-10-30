@@ -1,8 +1,25 @@
-mainmenu "Project Configuration"
+mainmenu "FDX PROJECT X- CONFIG"
 
-config TEST_OPTION
-    bool "Test Option"
-    help
-        Test option description
+config SERIAL_CONSOLE
+    bool "Enable Serial console"
 
+    config SERIAL_PRINT
+        bool "Enable Serial prints through serial console"
+        depends on SERIAL_CONSOLE
+        default n
 
+    config SERIAL_DEBUG
+        bool "Enable Serial debugging through console"
+        depends on SERIAL_CONSOLE
+        default n
+
+config LEDS
+    bool "Enable LEDS"
+
+    config CODE_ERROR
+        bool "Enable outputting errors as LED code"
+        depends on LEDS
+        default n
+
+config GPIOS_OUT
+    bool "Enable GPIOS OUT"

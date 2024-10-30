@@ -1,0 +1,3 @@
+#define CONFIG_SERIAL_CONSOLE 1
+#define CONFIG_LEDS 1
+#define CONFIG_GPIOS_OUT 1

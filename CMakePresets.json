@@ -1,0 +1,35 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "description": "Debug build with optimizations disabled and debugging symbols enabled",
+      "cacheVariables": {
+        "OPTIMIZATION_FLAG": "-O0",
+        "DEBUG_FLAG": "-g3",
+        "PRINTF_DEBUG": "ON",
+        "EXTRA_WARNINGS": "ON",
+        "UNIT_TESTING": "ON",
+        "REGRESION_TESTING": "ON"
+      }
+    },
+    {
+      "name": "prod",
+      "description": "Production build, no printing and optimized for runtime",
+      "cacheVariables": {
+        "OPTIMIZATION_FLAG": "-O3",
+        "DEBUG_FLAG": "-g0",
+        "PRINTF_DEBUG": "OFF",
+        "EXTRA_WARNINGS": "OFF",
+        "UNIT_TESTING": "OFF",
+        "REGRESION_TESTING": "ON"
+      }
+    }
+
+  ]
+}

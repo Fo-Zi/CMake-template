@@ -1,1 +1,2 @@
-add_subdirectory(linked_list)
+add_subdirectory(module_A)
+add_subdirectory(module_B)
